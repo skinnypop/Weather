@@ -40,10 +40,10 @@ function getIcon(desc){
 // Get user location
 function getLocation(){
   $.ajax({
-      url: 'http://ip-api.com/json',
+      url: 'https://ipapi.co/json/',
       success: function(data){
-        console.log(data.city,data.lat, data.lon);
-        getWeather(data.lat, data.lon);
+        console.log(data.city,data.latitude, data.longitude);
+        getWeather(data.latitude, data.longitude);
       }
     });
 }
