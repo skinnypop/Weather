@@ -1,0 +1,11 @@
+{
+    "few clouds" : "climacons-master/SVG/Cloud-Drizzle-Sun.svg",
+    "mist" : "climacons-master/SVG/Cloud-Drizzle.svg",
+    "clear sky" : "climacons-master/SVG/Sun.svg",
+    "scattered clouds" : "climacons-master/SVG/Cloud.svg",
+    "broken clouds" : "climacons-master/SVG/Cloud-Fog-Sun.svg",
+    "shower rain" : "climacons-master/SVG/Cloud-Rain.svg",
+    "rain" : "climacons-master/SVG/Cloud-Rain-Sun.svg",
+    "thunderstorm" : "climacons-master/SVG/Umbrella.svg",
+    "snow" : "climacons-master/SVG/Snowflake.svg"
+}
