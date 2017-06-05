@@ -11,7 +11,7 @@ var $icon = $('#icon');
 
 function getWeather(lat,lon){
   $.ajax({
-  url: 'https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&APPID=' + openWeatherAPIKey,
+  url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&APPID=' + openWeatherAPIKey,
   success: function(response){
     console.log(response.weather);
     $desc.text(response.weather[0].description);
