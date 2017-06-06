@@ -1,25 +1,25 @@
 const K_TO_C = 273.15;
 
 var openWeatherAPIKey = 'a335b08666ef0c729343d9b3f6f37828';
+var darkSkyKey = 'ef3db514e07e9876356020a725f24ee9';
 
 var $desc = $('#description');
 var icon;
 var $tempC = $('#temp');
 var $city = $('#city');
-var $icon = $('#icon');
+
 
 
 function getWeather(lat,lon){
   $.ajax({
-  url: 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&APPID=' + openWeatherAPIKey,
+  url: 'https://api.darksky.net/forecast/' + darkSkyKey + '/' + lat + ',' + lon,
   success: function(response){
-    console.log(response.weather);
-    $desc.text(response.weather[0].description);
-    icon = response.weather[0].icon;
-    $tempC.text((response.main.temp - K_TO_C).toFixed(1) + ' \xB0' + 'C');
-    console.log(icon);
-    $city.text(response.name);
-    getIcon(response.weather[0].description);
+    console.log('success');
+    //$desc.text(response.weather[0].description);
+    //icon = response.weather[0].icon;
+    //$tempC.text((response.main.temp - K_TO_C).toFixed(1) + ' \xB0' + 'C');
+    //console.log(icon);
+    //$city.text(response.name);
     }
   });
 }
