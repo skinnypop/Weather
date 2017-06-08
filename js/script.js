@@ -5,23 +5,23 @@ var darkSkyKey = 'ef3db514e07e9876356020a725f24ee9';
 
 var $desc = $('#description');
 var icon;
-var $tempC = $('#temp');
+var $tempF = $('#tempF');
+var $degF = $('#degF');
+var $tempC = $('#tempC');
+var $degC = $('#degC');
+var tempF;
+var tempC;
 var $city = $('#city');
 
 
 
 function getWeather(lat,lon){
   $.ajax({
-  url: 'https://api.darksky.net/forecast/' + darkSkyKey + '/' + lat + ',' + lon,
-  success: function(response){
-    console.log('success');
-    //$desc.text(response.weather[0].description);
-    //icon = response.weather[0].icon;
-    //$tempC.text((response.main.temp - K_TO_C).toFixed(1) + ' \xB0' + 'C');
-    //console.log(icon);
-    //$city.text(response.name);
-    }
-  });
+  url: 'https://crossorigin.me/https://api.darksky.net/forecast/' + darkSkyKey + '/' + lat + ',' + lon,
+  datatype: 'jsonp'
+    
+    
+  }).done(parseData);
 }
 
 function getIcon(desc){
@@ -42,13 +42,36 @@ function getLocation(){
   $.ajax({
       url: 'https://ipapi.co/json/',
       success: function(data){
+        $city.text(data.city);
         console.log(data.city,data.latitude, data.longitude);
         getWeather(data.latitude, data.longitude);
       }
     });
 }
 
+function parseData(response){
+    console.log(response);
+    $desc.text(response.currently.summary);
+    icon = response.currently.icon;
+    tempF = response.currently.temperature.toFixed(1);
+    tempC = ((tempF - 32) * 5 / 9).toFixed(1);
+    $tempF.text(tempF);
+    $degF.text(' \xB0' + 'F');
+    $tempC.text(tempC);
+    $degC.text(' \xB0' + 'C');
+    console.log(icon);
+}
 getLocation();
+
+$(document).ready(function(){
+  $degF.click(function () {
+    
+    alert("span clicked");
+
+  });
+});
+
+
 
 
 
