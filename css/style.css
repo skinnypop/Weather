@@ -6,8 +6,8 @@ html, body{
     height: 100%;
     font-family:'Orbitron', sans-serif;
     text-align:center;
-    color: #757575;
-    background-color: lightgreen;
+    color: #212121;
+    background-color: lightyellow;
 }
 
 .title{
@@ -21,8 +21,12 @@ h3 {
 }
 
 .degree{
-    color: darkgreen;
+    color: #757575;
     cursor: pointer;
+}
+a {
+    color: #757575;
+    font-size: 8pt;
 }
 
 

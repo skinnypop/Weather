@@ -5,8 +5,10 @@ var darkSkyKey = 'ef3db514e07e9876356020a725f24ee9';
 
 var $desc = $('#description');
 var icon;
+var $sectionF = $('#sectionF');
 var $tempF = $('#tempF');
 var $degF = $('#degF');
+var $sectionC = $('#sectionC');
 var $tempC = $('#tempC');
 var $degC = $('#degC');
 var tempF;
@@ -24,17 +26,6 @@ function getWeather(lat,lon){
   }).done(parseData);
 }
 
-function getIcon(desc){
-  $.getJSON('icon.json', function(iconData){
-    console.log("JSON: " + iconData[desc]);
-    let x = document.createElement("IMG");
-    x.setAttribute("src", iconData[desc]);
-    x.setAttribute("width", "128");
-    x.setAttribute("height", "128");
-    x.setAttribute("alt", desc);
-    $icon.append(x);
-    });
-}
 
 
 // Get user location
@@ -63,13 +54,21 @@ function parseData(response){
 }
 getLocation();
 
+// Degree change
+$sectionC.hide();
+
 $(document).ready(function(){
   $degF.click(function () {
-    
-    alert("span clicked");
-
+    $sectionF.hide();
+    $sectionC.show();
   });
+  $degC.click( function () {
+    $sectionC.hide();
+    $sectionF.show();
+  })
 });
+
+
 
 
 

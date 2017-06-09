@@ -11,14 +11,30 @@
   <h3 id= "city"></h3>
   <h3 id= "description"></h3>
   <h3>
-    <span id= "tempF"></span><span id= "degF" class= "degree"></span>
+    <div id= "sectionF">
+        <span id= "tempF"></span><span id= "degF" class= "degree"></span>
+    </div>
+    <div id= "sectionC">
     <span id= "tempC"></span><span id= "degC" class= "degree"></span>
+    </div>
   </h3>
 
-  <div class= "icon" id = "icon">
+  <div class= "icon">
+      <canvas id="icon1" width="128" height="128"></canvas>
   </div>
 
+    <a href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+    
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/skycons.js"></script>
+
+    <script> 
+        var skycons = new Skycons({"color": "black"});
+
+        skycons.add("icon1", Skycons.CLEAR_NIGHT);
+
+        skycons.play();
+    </script>
 </body>
 </html>
